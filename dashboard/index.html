@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cisco CLI Command Center</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Cisco CLI Command Center</h1>
+      <p>Search, generate and troubleshoot Cisco IOS-style CLI commands.</p>
+    </div>
+    <div id="apiStatus" class="status">API: checking...</div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <h2>Categories</h2>
+      <button class="category-btn active" data-category="">All commands</button>
+      <div id="categoryList"></div>
+    </aside>
+
+    <section class="content">
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <h2>Command Library</h2>
+            <p>Search by command, category or description.</p>
+          </div>
+          <input id="searchInput" type="search" placeholder="Search OSPF, VLAN, show ip route...">
+        </div>
+        <div id="commandList" class="command-grid"></div>
+      </section>
+
+      <section class="panel" id="detailPanel" hidden>
+        <div class="section-head">
+          <div>
+            <h2 id="detailTitle">Command</h2>
+            <p id="detailMeta"></p>
+          </div>
+          <button id="copyDetail" class="primary">Copy</button>
+        </div>
+        <pre id="detailCommand" class="code-block"></pre>
+        <div class="detail-grid">
+          <div><h3>Description</h3><p id="detailDescription"></p></div>
+          <div><h3>Syntax</h3><p id="detailSyntax" class="mono"></p></div>
+          <div><h3>Example</h3><pre id="detailExample" class="code-block"></pre></div>
+          <div><h3>Platform</h3><p id="detailPlatform"></p></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <h2>Command Generator</h2>
+            <p>Generate common static-routing and OSPF configurations.</p>
+          </div>
+        </div>
+        <div class="form-grid">
+          <label>Technology<select id="tech"><option>Static Routing</option><option>Default Route</option><option>OSPF</option><option>RIP</option></select></label>
+          <label>Process ID<input id="processId" type="number" value="1" min="1"></label>
+          <label>Network<input id="network" placeholder="192.168.10.0/24"></label>
+          <label>Area<input id="area" type="number" value="0" min="0"></label>
+          <label>Destination<input id="destination" placeholder="192.168.20.0"></label>
+          <label>Mask<input id="mask" placeholder="255.255.255.0"></label>
+          <label>Next hop<input id="nextHop" placeholder="192.168.10.2"></label>
+          <label>Router ID<input id="routerId" placeholder="1.1.1.1"></label>
+        </div>
+        <button id="generateBtn" class="primary">Generate commands</button>
+        <pre id="generatorOutput" class="code-block empty">Generated commands will appear here.</pre>
+        <div id="generatorNotes" class="notes"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <h2>CLI Troubleshooter</h2>
+            <p>Paste a Cisco CLI output. The built-in rules identify common patterns only.</p>
+          </div>
+        </div>
+        <textarea id="troubleshootInput" rows="10" placeholder="Paste output from show ip interface brief, show ip route, show ip ospf neighbor..."></textarea>
+        <input id="troubleshootContext" placeholder="Optional context, e.g. R1 OSPF lab">
+        <button id="troubleshootBtn" class="primary">Analyze output</button>
+        <div id="troubleshootOutput" class="findings"></div>
+      </section>
+    </section>
+  </main>
+  
+
+  <script src="app.js"></script>
+</body>
+</html>

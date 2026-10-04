@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Static route",
+    "command": "ip route 192.168.20.0 255.255.255.0 192.168.10.2",
+    "description": "Route traffic to 192.168.20.0/24 through the next hop 192.168.10.2."
+  },
+  {
+    "title": "OSPF",
+    "command": "router ospf 1\n network 192.168.10.0 0.0.0.255 area 0",
+    "description": "Enable OSPF process 1 for the 192.168.10.0/24 network in area 0."
+  }
+]

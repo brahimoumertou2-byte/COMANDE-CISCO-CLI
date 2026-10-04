@@ -1,0 +1,25 @@
+[
+  "Basic CLI",
+  "Interfaces",
+  "VLAN",
+  "Trunk",
+  "STP",
+  "EtherChannel",
+  "Static Routing",
+  "Default Route",
+  "Routing",
+  "OSPF",
+  "IPv6",
+  "DHCP",
+  "NAT",
+  "ACL",
+  "SSH",
+  "Port Security",
+  "CDP",
+  "LLDP",
+  "ARP",
+  "MAC Address",
+  "Show Commands",
+  "Troubleshooting"
+  
+]
